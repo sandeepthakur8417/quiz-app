@@ -5,7 +5,7 @@ const quizData = [{
     b: "C",
     c: "Python",
     d: "JavaScript",
-    correct: "d",
+    
 },
 {
     question: "What does HTML stand for?",
