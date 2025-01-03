@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Lung Day Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f0f8ff;
+        color: #333;
+      }
+
+      .quiz-container {
+        width: 90%;
+        max-width: 800px;
+        min-height: 400px;
+        margin: 50px auto;
+        background-color:violet;
+        border: 2px solid #161717;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 20px;
+        color: white;
+        font-family: ;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+        text-align: center;
+        margin-left: 280px;
+        padding-top: 10px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+      }
+
+      .header .question-number span {
+        display: inline block;
+        background-color: #ddd;
+        color: #555;
+        border-radius: 50%;
+        padding: 5px 10px;
+        margin: 0 3px;
+        cursor: pointer;
+        align-items: center;
+      }
+
+      .header .question-number .current {
+        background-color: #7048e8;
+        color: white;
+      }
+
+      .question p {
+        font-size: 1.8rem;
+        margin: px 0;
+      }
+
+      .options {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .options button {
+        width: 180px;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: 2px solid black;
+        border-radius: 8px;
+        background-color: #62eb30;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .options button:hover {
+        background-color: #7048e8;
+        color: white;
+      }
+
+      .footer {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>WORLD LUNG DAY <span>💗</span> QUIZ</h1>
+      <div class="question-number">
+        <span class="current">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+      </div>
+    </div>
+
+    <div class="quiz-container">
+      <!-- Question -->
+      <div class="question">
+        <br><br><br><br><br>
+        <p id="question-text">
+          According to the World Health Organisation, <br />
+          which of these is the most significant risk
+          <br />
+          to respiratory health?
+        </p>
+      </div>
+    </div>
+    
+
+    <!-- Options -->
+    <div class="options">
+      <button onclick="checkAnswer(this)" data-correct="false">
+        Global Warming
+      </button>
+      <button onclick="checkAnswer(this)" data-correct="true">
+        Air Pollution
+      </button>
+      <button onclick="checkAnswer(this)" data-correct="false">
+        Torrential Rain
+      </button>
+      <button onclick="checkAnswer(this)" data-correct="false">
+        Urbanisation
+      </button>
+    </div>
+    <script>
+      const questions = [
+        {
+          question:
+            "According to the World Health Organisation, which of these is the most significant risk to respiratory health?",
+          options: [
+            "Global Warming",
+            "Air Pollution",
+            "Torrential Rain",
+            "Urbanisation",
+          ],
+          correct: 1,
+        },
+        {
+          question: "Which disease is most commonly linked to smoking?",
+          options: ["Asthma", "Lung Cancer", "Pneumonia", "Bronchitis"],
+          correct: 2,
+        },
+        {
+          question:
+            "What is a major environmental factor that contributes to lung disease?",
+          options: [
+            "High Humidity",
+            "Air Pollution",
+            "Excessive Sunlight",
+            "Heavy Rainfall",
+          ],
+          correct: 1,
+        },
+        {
+          question:
+            "Which of the following is a common symptom of respiratory distress?",
+          options: ["Headache", "Shortness of breath", "Nausea", "Rashes"],
+          correct: 3,
+        },
+        {
+          question: "Which group is most at risk for respiratory diseases?",
+          options: ["Teenagers", "Elderly people", "Children", "Athletes"],
+          correct: 1,
+        },
+        {
+          question:
+            "Which type of air pollution is most harmful to respiratory health?",
+          options: [
+            "Carbon Monoxide",
+            "Ozone",
+            "Sulfur Dioxide",
+            "Particulate Matter",
+          ],
+          correct: 2,
+        },
+        {
+          question: "What is the best way to reduce the risk of lung diseases?",
+          options: [
+            "Quit smoking",
+            "Drink plenty of water",
+            "Exercise regularly",
+            "Sleep 8 hours a day",
+          ],
+          correct: 0,
+        },
+      ];
+
+      let currentQuestionIndex = 0;
+
+      // Initialize the quiz with the first question
+      loadQuestion();
+
+      function checkAnswer(button) {
+        // Check if the selected answer is correct
+        const correctAnswerIndex = questions[currentQuestionIndex].correct;
+        if (
+          button.textContent ===
+          questions[currentQuestionIndex].options[correctAnswerIndex]
+        ) {
+          button.style.backgroundColor = "#4CAF50"; // Green for correct
+          alert("Correct!  AspertheWorldHealthOrganisation, ChronicObstructive Pulmonary Disease (COPD) is the third leading cause of death worldwide, causing 3.23 million deaths in 2019. Among the listed causes, COPD is the biggest cause of death. Thus, it is important to learn about and take care of one's lung health.");
+        } else {
+          button.style.backgroundColor = "#F44336"; // Red for incorrect
+          alert("Incorrect. AspertheWorldHealthOrganisation, ChronicObstructive Pulmonary Disease (COPD) is the third leading cause of death worldwide, causing 3.23 million deaths in 2019. Among the listed causes, COPD is the biggest cause of death. Thus, it is important to learn about and take care of one's lung health.");
+        }
+
+        // Disable all buttons after a click
+        const buttons = document.querySelectorAll(".options button");
+        buttons.forEach((btn) => (btn.disabled = true));
+
+        // Move to the next question after a delay
+        setTimeout(() => {
+          loadNextQuestion();
+        }, 10); 
+      }
+
+      function loadQuestion() {
+        // Update the question text and options based on the current question index
+        const question = questions[currentQuestionIndex];
+        document.querySelector(".question p").textContent = question.question;
+
+        const buttons = document.querySelectorAll(".options button");
+        buttons.forEach((button, index) => {
+          button.textContent = question.options[index];
+          button.disabled = false;
+          button.style.backgroundColor = "#d9d9d9"; // Reset button color
+        });
+
+        // Update the question number
+        const currentQuestionNumber = document.querySelector(
+          ".question-number .current"
+        );
+        currentQuestionNumber.classList.remove("current");
+        const nextQuestionNumber = document.querySelectorAll(
+          ".question-number span"
+        )[currentQuestionIndex];
+        nextQuestionNumber.classList.add("current");
+      }
+
+      function loadNextQuestion() {
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length) {
+          loadQuestion();
+        } else {
+          alert("Quiz completed!");
+        }
+      }
+    </script>
+  </body>
+</html>
